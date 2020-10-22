@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cyclone", "cyclone\cyclone.vcxproj", "{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{6CE5C992-0CD8-4066-8058-DCF497EF9740}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Debug|x64.ActiveCfg = Debug|x64
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Debug|x64.Build.0 = Debug|x64
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Debug|x86.ActiveCfg = Debug|x64
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Debug|x86.Build.0 = Debug|x64
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Release|x64.ActiveCfg = Release|x64
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Release|x64.Build.0 = Release|x64
+		{26709DB6-2B1E-45CE-BA71-7C65944D8A1A}.Release|x86.ActiveCfg = Release|x64
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Debug|x64.ActiveCfg = Debug|x64
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Debug|x64.Build.0 = Debug|x64
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Debug|x86.ActiveCfg = Debug|Win32
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Debug|x86.Build.0 = Debug|Win32
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Release|x64.ActiveCfg = Release|x64
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Release|x64.Build.0 = Release|x64
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Release|x86.ActiveCfg = Release|Win32
+		{6CE5C992-0CD8-4066-8058-DCF497EF9740}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DCFF863-6160-4042-A98F-F002042A0C83}
+	EndGlobalSection
+EndGlobal
