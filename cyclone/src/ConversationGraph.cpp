@@ -3,32 +3,59 @@
 using namespace Cyclone;
 
 ConversationGraph::ConversationGraph() {
+	conversation_node_ = nullptr;
+
 	// lets set up some test nodes
 	InitGraph();
 }
 
 void ConversationGraph::InitGraph() {
-	ConversationNode* node = new ConversationNode();
+	ConversationNode* node0 = new ConversationNode();
+	ConversationNode* node1 = new ConversationNode();
+	ConversationNode* node2 = new ConversationNode();
+	ConversationNode* node3 = new ConversationNode();
+	ConversationNode* node4 = new ConversationNode();
 
-	node->Init("This is the root node for testing");
-	node->AddConversationOption("This is option 1.");
-	node->AddConversationOption("This is option 2.");
-	node->AddConversationOption("This is option 3.");
-	node->AddConversationOption("This is option 4.");
+	node0->Init("This is node0 for testing");
+	node0->AddConversationOption("This node0 is option 1.");
+	node0->AddConversationOption("This node0 is option 2.");
+	node0->AddConversationOption("This node0 is option 3.");
+	node0->AddConversationOption("This node0 is option 4.");
 
-	conversation_nodes_.push_back(node);
+	node1->Init("This is node1 for testing");
+	node1->AddConversationOption("This node1 is option 1.");
+	node1->AddConversationOption("This node1 is option 2.");
+	node1->AddConversationOption("This node1 is option 3.");
+
+	node2->Init("This is node2 for testing");
+	node2->AddConversationOption("This node2 is option 1.");
+	node2->AddConversationOption("This node2 is option 2.");
+	node2->AddConversationOption("This node2 is option 3.");
+
+	node3->Init("This is node3 for testing");
+	node3->AddConversationOption("This node3 is option 1.");
+	node3->AddConversationOption("This node3 is option 2.");
+
+	node4->Init("This is node4 for testing");
+	node4->AddConversationOption("This node4 is option 1.");
+
+	node0->conversation_options_[0]->next_node = node1;
+	node0->conversation_options_[1]->next_node = node2;
+	node0->conversation_options_[2]->next_node = node3;
+	node0->conversation_options_[3]->next_node = node3;
+
+	conversation_node_ = node0;
 }
 
 void ConversationGraph::TriggerDialog() {
-	if (!conversation_nodes_.empty())
-		conversation_nodes_[0]->Print();
+	if(conversation_node_)
+		conversation_node_->Print();
 }
 
-void ConversationGraph::DestroyGraph() {
-	for (auto& n : conversation_nodes_)
-		delete n;
+void ConversationGraph::SetConversationNode(ConversationNode* conversation_node) {
+	conversation_node_ = conversation_node;
 }
 
 ConversationGraph::~ConversationGraph() {
+	delete conversation_node_;
 }
-

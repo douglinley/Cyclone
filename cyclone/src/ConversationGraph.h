@@ -2,23 +2,27 @@
 
 #include "ConversationNode.h"
 
-#include <vector>
-
 namespace Cyclone {
 
 	class ConversationGraph {
 	private:
-		std::vector<ConversationNode*> conversation_nodes_;
+		ConversationNode* conversation_node_;
 		
 	public:
 		ConversationGraph();
+
 		~ConversationGraph();
 				
 		void InitGraph();
-		void DestroyGraph();
 	
 		void TriggerDialog();
 
+		void SetConversationNode(ConversationNode* conversation_node);
+
 		// bool SaveTreeState();
+
+		ConversationNode* GetConversationNode() const {
+			return conversation_node_;
+		}
 	};
 }

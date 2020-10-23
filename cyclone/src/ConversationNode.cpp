@@ -40,11 +40,21 @@ void ConversationNode::Print() {
 	std::cout << std::endl;
 
 	for (int i = 0; i < conversation_options_.size(); i++) {
-		std::cout << "    [" << i << "] " << conversation_options_[i]->line << std::endl;
+		std::cout << "    [" << i + 1 << "] " << conversation_options_[i]->line << std::endl;
 	}
+}
+
+ConversationNode* ConversationNode::RegisterChoice(int choice) {
+
+	if (choice < 1 || choice >= conversation_options_.size())
+		return nullptr;
+
+	return conversation_options_[choice-1]->next_node;
 }
 
 ConversationNode::~ConversationNode() {
 	for (auto& o : conversation_options_)
 		delete o;
 }
+
+

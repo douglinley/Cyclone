@@ -1,20 +1,13 @@
 #pragma once
 
-
 #include <string>
 #include <iostream>
 #include <vector>
 #include <windows.h>
 
+#include "ConversationOption.h"
+
 namespace Cyclone {
-	class ConversationNode;
-
-	struct ConversationOption {
-		GUID id;
-		std::string line;
-		ConversationNode* next_node;
-	};
-
 	class ConversationNode {
 	private:
 		GUID id_;
@@ -34,5 +27,7 @@ namespace Cyclone {
 		GUID AddConversationOption(std::string line);
 
 		void Print();
+
+		ConversationNode* RegisterChoice(int choice);
 	};
 }
