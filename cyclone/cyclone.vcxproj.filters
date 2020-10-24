@@ -21,12 +21,18 @@
     <ClInclude Include="src\ConversationGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ConversationOption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConversationGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ConversationNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConversationOption.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

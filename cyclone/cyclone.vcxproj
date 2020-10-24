@@ -13,10 +13,12 @@
   <ItemGroup>
     <ClInclude Include="src\ConversationNode.h" />
     <ClInclude Include="src\ConversationGraph.h" />
+    <ClInclude Include="src\ConversationOption.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConversationGraph.cpp" />
     <ClCompile Include="src\ConversationNode.cpp" />
+    <ClCompile Include="src\ConversationOption.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,4 +1,5 @@
 #include "ConversationNode.h"
+#include "ConversationOption.h"
 
 #include <Windows.h>
 
@@ -24,14 +25,10 @@ void ConversationNode::SetLine(std::string value) {
 
 GUID ConversationNode::AddConversationOption(std::string line) {
 	ConversationOption* option = new ConversationOption();
-	GUID g;
-	HRESULT h = CoCreateGuid(&g);
-
-	option->id = g;
-	option->line = line;
+	option->CreateOption(line);
 
 	conversation_options_.push_back(option);
-	return option->id;
+	return option->GetId();
 }
 
 void ConversationNode::Print() {
@@ -40,7 +37,7 @@ void ConversationNode::Print() {
 	std::cout << std::endl;
 
 	for (int i = 0; i < conversation_options_.size(); i++) {
-		std::cout << "    [" << i + 1 << "] " << conversation_options_[i]->line << std::endl;
+		std::cout << "    [" << i + 1 << "] " << conversation_options_[i]->GetLine() << std::endl;
 	}
 }
 
@@ -49,7 +46,7 @@ ConversationNode* ConversationNode::RegisterChoice(int choice) {
 	if (choice < 1 || choice >= conversation_options_.size())
 		return nullptr;
 
-	return conversation_options_[choice-1]->next_node;
+	return conversation_options_[choice - 1]->GetNextNode();
 }
 
 ConversationNode::~ConversationNode() {

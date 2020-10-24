@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "ConversationGraph.h";
+#include "ConversationGraph.h"
 
 using namespace Cyclone;
 

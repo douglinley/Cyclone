@@ -39,10 +39,10 @@ void ConversationGraph::InitGraph() {
 	node4->Init("This is node4 for testing");
 	node4->AddConversationOption("This node4 is option 1.");
 
-	node0->conversation_options_[0]->next_node = node1;
-	node0->conversation_options_[1]->next_node = node2;
-	node0->conversation_options_[2]->next_node = node3;
-	node0->conversation_options_[3]->next_node = node3;
+	node0->conversation_options_[0]->SetNextNode(node1);
+	node0->conversation_options_[1]->SetNextNode(node2);
+	node0->conversation_options_[2]->SetNextNode(node3);
+	node0->conversation_options_[3]->SetNextNode(node3);
 
 	conversation_node_ = node0;
 }

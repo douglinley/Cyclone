@@ -2,20 +2,24 @@
 #include <windows.h>
 #include <iostream>
 
-#include "ConversationNode.h"
 
 namespace Cyclone {
 
-class ConversationOption {
+	class ConversationNode;
+
+	class ConversationOption {
 	private:
 		GUID id_;
 		std::string line_;
 		ConversationNode* next_node_;
+
 	public:
 		ConversationOption();
 		~ConversationOption();
 
 		GUID GetId() const;
+
+		void CreateOption(std::string line);
 
 		std::string GetLine() const;
 

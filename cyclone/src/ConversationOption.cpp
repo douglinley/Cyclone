@@ -1,15 +1,21 @@
-#include "ConversationOption.h";
+#include "ConversationOption.h"
+#include "ConversationNode.h"
 
 using namespace Cyclone;
 
 ConversationOption::ConversationOption() :
-	next_node_(nullptr),
-	id_(-1) {
+	next_node_(nullptr) {
 }
-
 
 GUID ConversationOption::GetId() const {
 	return id_;
+}
+
+void ConversationOption::CreateOption(std::string line) {
+	GUID g;
+	CoCreateGuid(&g);
+	id_ = g;
+	line_ = line;
 }
 
 std::string ConversationOption::GetLine() const {

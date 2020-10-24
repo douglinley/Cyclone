@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ConversationNode.h"
+#include "ConversationOption.h"
 
 namespace Cyclone {
 

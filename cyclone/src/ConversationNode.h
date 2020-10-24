@@ -5,9 +5,10 @@
 #include <vector>
 #include <windows.h>
 
-#include "ConversationOption.h"
 
 namespace Cyclone {
+	class ConversationOption;
+
 	class ConversationNode {
 	private:
 		GUID id_;
