@@ -5,22 +5,37 @@
 using namespace Cyclone;
 
 int main() {
-	int response = 0;
 
 	std::cout << "Hello, from Cyclone, a Directed Graph Conversation System from Confused Chicken Games." << std::endl;
-	std::cout << std::endl << std::endl;
 
-	ConversationGraph graph;
-	graph.InitGraph();
-	graph.TriggerDialog();
-		
-	std::cout << std::endl << "What will you do?" << std::endl << std::endl;
-	std::cin >> response;
+	// load the scene's conversation graph
+	ConversationGraph conversation;
+	conversation.Load();
 	
-	ConversationNode* new_node = graph.GetConversationNode()->RegisterChoice(response);
-	graph.SetConversationNode(new_node);
-	graph.TriggerDialog();
+	// show the root node
+	conversation.Begin();
 
+	// cycle dialog for scene
+	while(true) {
+		int input = 0;
+
+
+		if (!conversation.IsValidInput(input)) {
+			std::cout << "Input is not valid" << std::endl;
+			continue;
+		}
+
+		conversation.Run(input);
+		if (conversation.IsOver()) break;
+
+		std::cout << conversation.GetConversationNode()->GetLine() << std::endl << std::endl;
+		std::cout << "What do you want to do?" << std::endl;
+		for (int i = 0; i < conversation.GetConversationNode()->conversation_options_.size(); i++) {
+				std::cout << "[" << i + 1 << "]  " << conversation.GetConversationNode()->conversation_options_[i]->GetLine() << std::endl;
+		}
+	}
+
+	std::cout << "Conversation has ended." << std::endl;
 	std::cin.get();
 }
 

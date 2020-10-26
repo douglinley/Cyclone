@@ -2,14 +2,11 @@
 
 using namespace Cyclone;
 
-ConversationGraph::ConversationGraph() {
-	conversation_node_ = nullptr;
-
-	// lets set up some test nodes
-	InitGraph();
+ConversationGraph::ConversationGraph() :
+	conversation_node_(nullptr){
 }
 
-void ConversationGraph::InitGraph() {
+void ConversationGraph::Load() {
 	ConversationNode* node0 = new ConversationNode();
 	ConversationNode* node1 = new ConversationNode();
 	ConversationNode* node2 = new ConversationNode();
@@ -47,13 +44,31 @@ void ConversationGraph::InitGraph() {
 	conversation_node_ = node0;
 }
 
-void ConversationGraph::TriggerDialog() {
+void ConversationGraph::Begin() {
 	if(conversation_node_)
 		conversation_node_->Print();
 }
 
 void ConversationGraph::SetConversationNode(ConversationNode* conversation_node) {
 	conversation_node_ = conversation_node;
+}
+
+bool ConversationGraph::IsOver() {
+	return (conversation_node_ == nullptr);
+}
+
+ConversationNode* ConversationGraph::GetConversationNode() const {
+	return conversation_node_;
+}
+
+void ConversationGraph::Run(int input) {
+	conversation_node_ = conversation_node_->conversation_options_[input - 1]->GetNextNode();
+}
+
+bool ConversationGraph::IsValidInput(int input) {
+	if (input < 1 || input >= conversation_node_->conversation_options_.size()) {
+		return false;
+	}
 }
 
 ConversationGraph::~ConversationGraph() {

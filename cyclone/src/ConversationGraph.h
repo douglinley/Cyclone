@@ -14,16 +14,19 @@ namespace Cyclone {
 
 		~ConversationGraph();
 				
-		void InitGraph();
+		void Load();
 	
-		void TriggerDialog();
+		void Begin();
+
+		void Run(int response);
 
 		void SetConversationNode(ConversationNode* conversation_node);
 
 		// bool SaveTreeState();
+		bool IsOver();
 
-		ConversationNode* GetConversationNode() const {
-			return conversation_node_;
-		}
+		bool IsValidInput(int input);
+
+		ConversationNode* GetConversationNode() const;	
 	};
 }
