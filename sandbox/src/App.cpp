@@ -15,10 +15,13 @@ int main() {
 	// show the root node
 	conversation.Begin();
 
-	// cycle dialog for scene
+	// cycle dialog for scene	
 	while(true) {
 		int input = 0;
 
+		std::cout << "What will you do?" << std::endl;
+		std::cin >> input;
+		std::cout << std::endl;
 
 		if (!conversation.IsValidInput(input)) {
 			std::cout << "Input is not valid" << std::endl;
@@ -28,11 +31,7 @@ int main() {
 		conversation.Run(input);
 		if (conversation.IsOver()) break;
 
-		std::cout << conversation.GetConversationNode()->GetLine() << std::endl << std::endl;
-		std::cout << "What do you want to do?" << std::endl;
-		for (int i = 0; i < conversation.GetConversationNode()->conversation_options_.size(); i++) {
-				std::cout << "[" << i + 1 << "]  " << conversation.GetConversationNode()->conversation_options_[i]->GetLine() << std::endl;
-		}
+		conversation.GetConversationNode()->Print();
 	}
 
 	std::cout << "Conversation has ended." << std::endl;
